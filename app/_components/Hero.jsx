@@ -5,7 +5,7 @@ function Hero() {
   <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen ">
     <div className="mx-auto max-w-3xl text-center">
       <h1
-        className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl"
+        className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-transparent text-3xl font-extrabold sm:text-5xl"
       >
         All your Digital Products
 
@@ -18,7 +18,7 @@ function Hero() {
 
       <div className="mt-8 flex flex-wrap justify-center gap-4">
         <a
-          className="block w-full rounded border-none bg-primary hover:bg-gradient-to-r from-green-300 via-blue-500 to-purple-600  px-12 py-3 text-sm font-medium text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
+          className=" transition ease-in-out delay-150 duration-300 block w-full rounded border-none bg-primary hover:bg-gradient-to-r from-green-300 via-blue-500 to-purple-600  px-12 py-3 text-sm font-medium text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
           href="#"
         >
           Get Started

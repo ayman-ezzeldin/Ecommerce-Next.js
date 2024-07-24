@@ -1,6 +1,9 @@
+'use client'
 import Image from "next/image";
+import { useState } from "react";
 
 function Header() {
+  const [click , setClick] = useState(false)
   return (
     <header className="bg-white ">
   <div className="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8 shadow-md ">
@@ -66,7 +69,7 @@ function Header() {
       </div>
     </div>
   </div>
-</header>
+    </header>
   )
 }
 
