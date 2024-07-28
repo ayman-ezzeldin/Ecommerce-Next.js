@@ -12,7 +12,6 @@ function ProductSection() {
   const getLatestProducts_ = () => {
     ProductApis.getLatestProducts().then( res => setProductList(res.data.data) )
   }
-  console.log(productList);
 
   return (
     <div className="px-10 md:px-20">

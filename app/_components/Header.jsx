@@ -1,11 +1,17 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
+import { UserButton, useUser } from "@clerk/nextjs";
+import { ShoppingCart } from "lucide-react";
 
 function Header() {
-  const [click, setClick] = useState(false);
-  return (
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const {user} = useUser()
+  useEffect(() => {
+    setIsLoggedIn(window.location.href.toString().includes('sign-in') || window.location.href.toString().includes('sign-up'))
+  } ,[])
+  return !isLoggedIn && (
     <>
       <header className="bg-white ">
         <div className="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8 shadow-md ">
@@ -75,21 +81,28 @@ function Header() {
             </nav>
 
             <div className="flex items-center gap-4">
-              <div className="sm:flex sm:gap-4">
+              { !user ?
+                <div className="sm:flex sm:gap-4">
                 <a
                   className="block rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-white transition hover:bg-[#2b24adee]"
-                  href="#"
+                  href="/sign-in"
                 >
                   Login
                 </a>
 
                 <a
                   className="hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-primary transition hover:text-[#2b24ad] sm:block"
-                  href="#"
+                  href="/sign-up"
                 >
                   Register
                 </a>
               </div>
+              :
+              <div className="flex items-center gap-3">
+                <h2 className="flex items-center gap-1 cursor-pointer"> <ShoppingCart />(0)  </h2>
+                <UserButton />
+              </div>  
+            }
 
               <button className="block rounded bg-gray-100 p-2.5 text-gray-600 transition hover:text-[#2b24ad]/75 md:hidden">
                 <span className="sr-only">Toggle menu</span>

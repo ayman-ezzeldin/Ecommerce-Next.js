@@ -1,6 +1,9 @@
+'use client'
+import { useUser } from "@clerk/nextjs"
 
 function Footer() {
-  return (
+  const {user} = useUser()
+  return user && (
     <div>Footer</div>
   )
 }
