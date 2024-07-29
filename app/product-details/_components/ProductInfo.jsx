@@ -2,14 +2,35 @@ import { AlertOctagon, BadgeCheck, ShoppingCart } from "lucide-react";
 import SkeletonProductInfo from "./SkeletonProductInfo";
 import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
+import CartApis from "@/app/_util/CartApis";
+import { useContext } from "react";
+import { CartContext } from "@/app/_context/CartContext";
 
 export const ProductInfo = ({ product }) => {
   const {user} = useUser()
+  const {setCart} = useContext(CartContext)
   const router = useRouter()
   const handelAddToCart = ()=> {
     if(!user) {
       router.push('/sign-in')
     }else {
+      const data = {
+        data : {
+          username : user.fullName || 'no user',
+          email : user.primaryEmailAddress?.emailAddress,
+          products : [product?.id] ,
+        }
+      }
+      CartApis.addToCart(data).then(res =>{
+        console.log("cart is succes",res?.data?.data) 
+        setCart(oldCart => [
+          ...oldCart,
+          {
+            id : res?.data?.data.id ,
+            product
+          }
+        ])
+      }  )
     }
   }
   return (
