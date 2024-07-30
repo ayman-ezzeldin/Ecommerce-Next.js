@@ -1,6 +1,6 @@
 Using :
   Next.js,
-  Strapi,
+  Strapi (CMS) ,
   Clerk,
   Resend,
   Lucied,
