@@ -19,6 +19,11 @@ const Cart = () => {
       })
       .catch((err) => console.log("can not delete item from cart", err));
   };
+  const sendEmail = async () => {
+    const res = await fetch("/api/send-email", {
+      method: "POST",
+    })
+  };
 
   return (
     <section>
@@ -99,7 +104,7 @@ const Cart = () => {
                   </div>
                 </dl>
 
-                <div className="flex justify-end">
+                <div onClick={sendEmail} className="flex justify-end">
                   <a
                     href="#"
                     className="block rounded bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-600"

@@ -5,7 +5,8 @@ import Link from "next/link";
 
 const Cart = () => {
   const { cart, setCart } = useContext(CartContext);
-  console.log(cart[0]?.product);
+
+
   return (
     <div className="h-[300px] w-[250px] bg-gray-100 z-10 rounded-md border shadow-sm absolute mx-10 right-10 top-12 p-5 overflow-auto ">
       <div className="mt-4 space-y-6">
@@ -54,12 +55,12 @@ const Cart = () => {
             View my cart ({cart.length})
           </Link>
 
-          <a
+          {/* <button onClick={handelEmail}
             href="#"
             className="block rounded bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-600"
           >
             Checkout
-          </a>
+          </button> */}
 
           <Link
             href="/"
